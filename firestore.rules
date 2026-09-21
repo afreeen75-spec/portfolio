@@ -1,0 +1,43 @@
+rules_version = '2';
+
+// Resume content is public to read and writable only by the site owner.
+// Keep the email here in sync with VITE_ADMIN_EMAIL.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == 'khatunafreen742@gmail.com';
+    }
+
+    match /site/{document} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+    match /experience/{document} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+    match /projects/{document} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+    match /skills/{document} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+    match /education/{document} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+    // Anything not listed above is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

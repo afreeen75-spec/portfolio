@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afreen Khatun — Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Afreen Khatun is a Full Stack Developer in Kathmandu, Nepal, building production web platforms for government and enterprise clients with Vue.js, React, Django and PostgreSQL — with a focus on CAS single sign-on, RBAC and reusable UI systems."
+    />
+    <meta name="author" content="Afreen Khatun" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f3" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131110" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Afreen Khatun — Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer building production platforms for government and enterprise clients — authentication, permissions and UI systems that hold up."
+    />
+    <meta property="og:image" content="/afreen-portrait.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Afreen Khatun",
+        "jobTitle": "Full Stack Developer",
+        "email": "mailto:khatunafreen742@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kathmandu",
+          "addressCountry": "NP"
+        },
+        "sameAs": ["https://linkedin.com/in/afreen-khatun"]
+      }
+    </script>
+
+    <script>
+      // Apply the stored theme before first paint so there is no flash.
+      ;(function () {
+        try {
+          var stored = localStorage.getItem("afreen-theme")
+          var dark =
+            stored === "dark" ||
+            ((!stored || stored === "system") &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          document.documentElement.classList.toggle("dark", dark)
+          document.documentElement.style.colorScheme = dark ? "dark" : "light"
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui, sans-serif">
+        This portfolio needs JavaScript. You can reach Afreen Khatun at
+        <a href="mailto:khatunafreen742@gmail.com">khatunafreen742@gmail.com</a>.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

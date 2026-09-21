@@ -1,0 +1,24 @@
+rules_version = '2';
+
+// The resume PDF: public to download, replaceable only by the site owner.
+// Keep the email here in sync with VITE_ADMIN_EMAIL and firestore.rules.
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isOwner() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == 'khatunafreen742@gmail.com';
+    }
+
+    match /resume/{file} {
+      allow read: if true;
+      allow write: if isOwner()
+        && request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType == 'application/pdf';
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
